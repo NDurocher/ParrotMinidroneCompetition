@@ -31,7 +31,3 @@ codegen/
 octave-workspace
 
 work/*
-
-
-#Not sure if that should be in .gitignore, we'll figure out...
-resources/*
