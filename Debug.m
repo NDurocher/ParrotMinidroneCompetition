@@ -9,7 +9,8 @@ binary = r>200
 labelImage = bwlabel(binary);
 props = regionprops(labelImage, 'Centroid', 'Orientation')
 % props = regionprops(bw, 'Centroid', 'WeightedCentroid');
-imshow(binary)
+test =bwmorph(binary,'thin',Inf);
+imshow(test)
 % stats.Centroid
 hold on
 plot(props.Centroid(1), props.Centroid(2),'bx', 'LineWidth',1);
