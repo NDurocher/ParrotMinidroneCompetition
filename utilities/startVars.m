@@ -87,3 +87,18 @@ initVars = setdiff(endVars,initVars);
 clear endVars;
 
 % LocalWords:  myvariable
+A = [1 Ts; 0 1];
+B = [0; Ts];
+C = [1 0];
+D = 0;
+
+Q = diag(1./[10^2 0.5^2 0.5^2]);
+R = 1/(2^2);
+% Q = eye(3);
+% R = 1;
+
+sys_dt = ss(A,B,C,D,Ts);
+K = lqr(sys_dt,Q(1:2,1:2),R);
+
+K1_dt = lqi(sys_dt,Q,R)
+
