@@ -31,3 +31,6 @@ codegen/
 octave-workspace
 
 work/*
+/.vs
+/.vscode
+/NMakeExe
