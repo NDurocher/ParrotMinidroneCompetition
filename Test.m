@@ -35,3 +35,21 @@ not_test = ~test;
 not_test(WP_X,WP_Y) = 1;
 
 imshow(not_test)
+%%
+subplot(2,1,1)
+imshow(test);
+subplot(2,1,2)
+[H,T,R] = hough(test,'RhoResolution',0.5,'Theta',-90:0.5:89);
+imshow(imadjust(rescale(H)),'XData',T,'YData',R,...
+      'InitialMagnification','fit');
+  title('Hough transform of test');
+xlabel('\theta'), ylabel('\rho');
+axis on, axis normal, hold on;
+colormap(gca,hot);
+
+max(H);
+
+
+
+
+
