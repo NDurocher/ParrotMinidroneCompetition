@@ -34,3 +34,4 @@ work/*
 /.vs
 /.vscode
 /NMakeExe
+*..MATLABDriveTag
