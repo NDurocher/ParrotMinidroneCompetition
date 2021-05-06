@@ -15,7 +15,7 @@ function [ordered] = orderCenterline(centerLine)
     row=zeros(size(dist,2),1);
     column = zeros(size(dist,2),1);
     t= zeros(size(dist,2),1);
-    [row,column,t]=find(dist==min(dist),size(dist,1));
+    [row,column]=find(dist==min(dist,[],'all'));
     
     for i=1:size(row,1) 
             rowI = ignore==row(i);
