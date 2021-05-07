@@ -1,5 +1,5 @@
 function [result] = splitLineInSegments(line)
-    lineTol = absTol(line(:,3),1);
+    lineTol = absTol(line(:,3),5);
     foundLine=[];
     for i=1: size(lineTol,1)
        minV = lineTol(i,1);
