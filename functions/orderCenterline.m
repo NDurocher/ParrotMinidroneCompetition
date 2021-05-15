@@ -16,15 +16,21 @@ function [ordered] = orderCenterline(centerLine)
     column = zeros(size(dist,2),1);
     t= zeros(size(dist,2),1);
     [row,column]=find(dist==min(dist,[],'all'));
-    
+    coder.varsize('rowI');
+    coder.varsize('rowT');
     for i=1:size(row,1) 
-            rowI = ignore==row(i);
-        colI = ignore==column(i);
-        rowT = all(rowI==0);
-        colT = all(colI==0);
-        if(rowT==0)
+        % the next lines: if(ingore.contains(i))-> continue
+        %this got a bit ugly because of the incredible matlab c coder
+        continue_=0;
+        for k=1:size(ignore,2)
+            if(i==ignore(k))
+                continue_=1;
+            end
+        end
+        if(continue_==1)
             continue
         end
+  
         %we need to bring row and column value of i together...
         if(mod(row(i),2)==1)
             addFirst = row(i)+1;
