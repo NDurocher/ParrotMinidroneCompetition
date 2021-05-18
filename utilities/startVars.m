@@ -100,5 +100,5 @@ R = 1/(2^2);
 sys_dt = ss(A,B,C,D,Ts);
 K = lqr(sys_dt,Q(1:2,1:2),R);
 
-K1_dt = lqi(sys_dt,Q,R)
+K1_dt = lqi(sys_dt,Q,R);
 
