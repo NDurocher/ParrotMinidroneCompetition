@@ -8,7 +8,14 @@ function [ordered] = orderCenterline(centerLine)
 %     ignore= zeros(1,size(centerLine,2)*2);
 %     ordered = zeros(size(centerLine,2)*2,2);
     if(size(centerLine,1)<4)
+        % we just have one line, let's check what's up and down
+%         [angle1, ~]=getAngleToImgCenter(centerLine(1,2:-1:1));
+%         [angle2, ~]=getAngleToImgCenter(centerLine(2,2:-1:1));
+%         if(angle1<angle2)
         ordered=centerLine;
+%         else
+            ordered=[centerLine(2,:);centerLine(1,:)];
+%         end
         return;
     end
    
@@ -39,7 +46,7 @@ function [ordered] = orderCenterline(centerLine)
             addFirst = row(i)-1;
             addSecond = row(i);
         end
-         if(mod(column(i),2)==1)
+        if(mod(column(i),2)==1)
             addThird = column(i);
             addForth = column(i)+1;
         else

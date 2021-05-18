@@ -32,4 +32,7 @@ else
             arr(i,y1) = 255;
         end
     end
+%     if(forLoopDist>0)
+%        waypoints = flipud(waypoints) 
+%     end
 end
