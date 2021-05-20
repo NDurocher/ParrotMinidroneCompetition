@@ -36,3 +36,9 @@ work/*
 /NMakeExe
 *..MATLABDriveTag
 debugMay17.m
+
+libraries/functions/**
+resources/project/
+waypoints.png
+waypoints.txt
+*.MATLABDriveTag

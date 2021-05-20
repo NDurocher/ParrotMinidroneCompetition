@@ -3,7 +3,7 @@ if coder.target('MATLAB')
     clear;
     clc;
     close all;
-    pic = imread("FailCorner7.png");
+    pic = imread("TestImages/FailCorner11.png");
     imshow(pic);
 else
     pic=Redim;
