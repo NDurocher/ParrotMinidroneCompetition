@@ -1,9 +1,9 @@
-function [waypointsInfront, arr] = WaypointGenerationDebug(centerLine)
+function [guidanceWaypoints, arr] = WaypointGenerationDebug(centerLine)
 if coder.target('MATLAB')
     clear;
     clc;
     close all;
-    centerLine = readmatrix('waypoints.txt');
+    centerLine = readmatrix('waypoints.txt')
     pic = imread('waypoints.png');
     figure('Name', 'Read path');
     imshow(pic);
@@ -15,6 +15,7 @@ else
     waypointsInfront=[];
 end
 
+guidanceWaypoints = [60, 80; 60, 80];
 [arr, waypoints]=pointsToCenterLine(centerLine,arr);
 % [~, waypoints]=pointsToCenterLine(centerLine,[]);
 list= single(waypoints);
@@ -22,7 +23,7 @@ list= single(waypoints);
 coder.varsize('sortedWaypoints')
 sortedWaypoints = zeros(size(list,1),4);
 for i=1:size(list,1)
-    [arcos,D]=getAngleToImgCenter([list(i,1), list(i,2)]);
+   [arcos,D]=getAngleToImgCenter([list(i,1), list(i,2)]);
     sortedWaypoints(i,:) = [list(i,:),arcos,D];
 end
 if(size(sortedWaypoints,1)==0)
@@ -43,7 +44,10 @@ else
     waypointsInfront = sortedWaypoints(i:-1:1,:);
 end
 l = size(waypointsInfront,1);
-guidanceWaypoints =[waypointsInfront(l-20,1:2);waypointsInfront(l,1:2)]
+
+if (l-20) >= 1
+    guidanceWaypoints =[waypointsInfront(l-20,1:2);waypointsInfront(l,1:2)];
+end
 if coder.target('MATLAB')
     idx=sub2ind(size(img),waypointsInfront(:,1), waypointsInfront(:,2));
     img(idx)=255;
