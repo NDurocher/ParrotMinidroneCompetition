@@ -62,7 +62,7 @@ function [ordered] = orderCenterline(centerLine)
         end
     else
         %one value is twice here, so that's where both lines align
-        [u,I,J] = unique(centerLine,'rows');
+        [u,I,J] = unique(centerLine,'rows', 'stable');
         duplicateRow= setdiff(1:size(centerLine,1), I);
         duplicateValue = centerLine(duplicateRow,:);
         uniquesIdx = not(ismember(centerLine, duplicateValue,'rows'))
