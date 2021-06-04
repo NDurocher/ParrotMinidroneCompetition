@@ -3,8 +3,8 @@ if coder.target('MATLAB')
     clear;
     clc;
     close all;
-    pic = imread("TestImages/FailCorner11.png");
-    imshow(pic);
+    pic = rgb2hsv(imread("Blue2.jpg"));
+%     imshow(pic);
 else
     pic=Redim;
 end
@@ -14,8 +14,8 @@ centerLine = double([4,2]);
 lineWidthInPixel=25;
 % pic = imread("goal.jpg");
 % lineWidthInPixel=110;
-
-BW = edge(pic(:,:,1),'prewitt');
+imshow(pic(:,:,3))
+BW = edge(pic(:,:,3)>0.7,'prewitt');
 [H,theta,rho] = hough(BW);
 
 
