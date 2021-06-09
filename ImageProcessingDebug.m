@@ -3,7 +3,7 @@ if coder.target('MATLAB')
     clear;
     clc;
     close all;
-    pic = rgb2hsv(imread("Blue2.jpg"));
+    pic = imcrop(imread("TestImages/Test22.png"),[0 0 160 80]);
 %     imshow(pic);
 else
     pic=Redim;
@@ -11,22 +11,22 @@ end
 arr = uint8(zeros(size(pic,1),size(pic,2)));
 % coder.varsize('centerLine',[4,2], [4,2]);
 centerLine = double([4,2]);
-lineWidthInPixel=25;
+lineWidthInPixel=15;
 % pic = imread("goal.jpg");
 % lineWidthInPixel=110;
-imshow(pic(:,:,3))
-BW = edge(pic(:,:,3)>0.7,'prewitt');
-[H,theta,rho] = hough(BW);
+imshow(pic(:,:,1))
+BW = edge(pic(:,:,1),'prewitt');
+[H,theta,rho] = hough(BW,'Theta',-89:89);
 
 
 nHoodSize = int32(size(H)/50);
 nHoodSize = double(nHoodSize);
-P = houghpeaks(H,50,'threshold',ceil(0.1*max(H(:))), 'NHoodSize', [1,1]);
+P = houghpeaks(H,50,'threshold',ceil(0.1*max(H(:))), 'NHoodSize', [1,1],'Theta',-89:89);
 x = theta(P(:,2));
 y = rho(P(:,1));
 
 
-lines = houghlines(BW,theta,rho,P,'FillGap',lineWidthInPixel*2/3,'MinLength',lineWidthInPixel);
+lines = houghlines(BW,theta,rho,P,'FillGap',lineWidthInPixel*3/4,'MinLength',lineWidthInPixel*3);
 if isempty(lines)
     return
 end
@@ -104,7 +104,7 @@ line2 = zeros([2,4]);
 if size(concLines,2)==2
     line1=splitLineInSegments(concLines{1});
     line2=splitLineInSegments(concLines{2});
-elseif(size(concLines,2)==3)
+elseif(size(concLines,2)>=3)
         lineS1 = splitLineInSegments(concLines{1});
         lineS2 = splitLineInSegments(concLines{2});
         lineS3 = splitLineInSegments(concLines{3});
@@ -186,6 +186,7 @@ centerLine = orderCenterline(centerLine);
 if coder.target('MATLAB')
     figure;
     imshow(arr);
+    impixelinfo;
     imwrite(arr, 'waypoints.png');
     writematrix(centerLine, 'waypoints.txt')
 %     waypointFile = fopen('waypoints.pmc', 'w')

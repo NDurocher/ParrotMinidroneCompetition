@@ -65,8 +65,9 @@ function [ordered] = orderCenterline(centerLine)
         [u,I,J] = unique(centerLine,'rows', 'stable');
         duplicateRow= setdiff(1:size(centerLine,1), I);
         duplicateValue = centerLine(duplicateRow,:);
-        uniquesIdx = not(ismember(centerLine, duplicateValue,'rows'))
+        uniquesIdx = not(ismember(centerLine, duplicateValue,'rows'));
         uniques = centerLine(uniquesIdx,:);
         centerLine=[uniques(1,:); duplicateValue; uniques(2,:)];
+        ordered = centerLine;
     end
 end
