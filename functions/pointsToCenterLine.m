@@ -1,6 +1,6 @@
 function [arr, waypoints] = pointsToCenterLine(centerLine, arr)
 waypoints = uint32([]);
-if(size(centerLine,1)==2)
+if(size(centerLine,1)>=2)
     coder.varsize('p1', [1,2]);
     coder.varsize('p2', [1,2]);
     p1 = centerLine(1,:);

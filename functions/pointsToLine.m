@@ -1,6 +1,6 @@
 function [arr, waypoints] =pointsToLine (point1, point2, arr)
 waypoints=uint32([]);
-if(sum(point1==point2)==2)
+if(sum(point1(1:2)==point2(1:2))==2)
     return
 end
 coder.varsize('point1');
