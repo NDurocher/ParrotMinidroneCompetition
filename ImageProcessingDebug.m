@@ -4,7 +4,7 @@ if coder.target('MATLAB')
     clc;
     close all;
 %     pic = imread("TestImages/Mambo_2021-05-21T190412+0200_.jpg");
-    pic = imread("TestImages/FailCorner1.png");
+    pic = imread("TestImages/Test25.png");
 %     imshow(pic);
 else
     pic=Redim;
@@ -18,6 +18,7 @@ lineWidthInPixel=50;
 % pic = imread("goal.jpg");
 % lineWidthInPixel=110;
 BW = maskImageRGB(pic);
+imshow(BW);
 BW=bwmorph(BW, 'skel', 50);
 
 [H,theta,rho] = hough(BW);
