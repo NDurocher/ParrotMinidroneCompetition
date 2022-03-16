@@ -8,7 +8,8 @@ This project was part of the Guidance Navigation and Control course from SDU. We
 
 ## Results
 ### Matlab competition
-Beside this repository, we submitted a [5 minute video](https://youtu.be/elezoPG-3co) which explains our approach, demonstrates it as well as highlithing our learnings and main challenges. The presentation can be found [here](Results/MiniDrone%20Competition.pdf).
+We uploaded our final presentation 
+Beside this repository, we submitted a [5 minute video](https://youtu.be/elezoPG-3co) which explains our approach, demonstrates it as well as highlithing our learnings and main challenges. The presentation can be found [here](results/MiniDroneCompetition.pdf).
 Line following       |  Turning
 :-------------------------:|:-------------------------:
 ![](results/images/LineFollowing.png)  |  ![](results/images/Steering.png)
