@@ -15,7 +15,7 @@ Line following       |  Turning
 ![](results/images/LineFollowing.png)  |  ![](results/images/Steering.png)
 
 ### Guidance Navigation and Control class
-Beside this repository, we submitted a [report](Results/GNC_Parrot_Minidrone.pdf), which describes the control model, detailed information about the implementation, results, discussion and conclusion. A simulation demo was published on [YouTube](https://youtu.be/kNiId2MReso).
+Beside this repository, we submitted a [report](results/GNC_Parrot_Minidrone.pdf), which describes the control model, detailed information about the implementation, results, discussion and conclusion. A simulation demo was published on [YouTube](https://youtu.be/kNiId2MReso).
 View from drone's camera with the generated trajectory (black)       |  Desired and recorded trajectories on test track
 :-------------------------:|:-------------------------:
 ![](results/images/Composite_Trajectory.png)  |  ![](results/images/GNC_Paper_Sim_Evaluation.png)
