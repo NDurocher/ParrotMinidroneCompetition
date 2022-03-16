@@ -1,58 +1,23 @@
 ## Parrot Minidrone Competition
-A little info about your project and/ or overview that explains **what** the project is about.
+We investigate the problem of implementing a real-time image-based feedforward controller on a quadcopter. A method was developed with a focus on extracting a desired trajectory from the environment using an on-board camera and applying a feedforward control method to navigate a course. The image processing and controls were designed around having a distinct line to follow and a simpliﬁed dynamical model.  Through extensive simulation development our method showed promising results, while the deployment to hardware was unsuccessful due to hardware limitations. 
+
+This project is split into two parts: The branch "HandInRound1" was the hand in for the MathWorks competition 2021, where we used a behavior-based approach.  The "main" branch contains the source code for the semester project of the course Guidance Navigation and Control, where we implemented an image-based feedforward controller.
 
 ## Motivation
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+This project was part of the Guidance Navigation and Control course from SDU. We decided to sign up for the Minidrone competition to get experience outside of our communication, as well as getting in contact with students outside our university.
 
-## Build status
-Build status of continus integration i.e. travis, appveyor etc. Ex. - 
+## Results
+### Matlab competition
+Beside this repository, we submitted a [5 minute video](https://youtu.be/elezoPG-3co) which explains our approach, demonstrates it as well as highlithing our learnings and main challenges. The presentation can be found [here](Results/MiniDrone%20Competition.pdf).
+Line following       |  Turning
+:-------------------------:|:-------------------------:
+![](results/images/LineFollowing.png)  |  ![](results/images/Steering.png)
 
-[![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
-
-## Code style
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
- 
-## Screenshots
-Include logo/demo screenshot etc.
-
-## Tech/framework used
-Ex. -
-
-<b>Built with</b>
-- [Electron](https://electron.atom.io)
-
-## Features
-What makes your project stand out?
-
-## Code Example
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
-## Installation
-Provide step by step series of examples and explanations about how to get a development env running.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-Describe and show how to run the tests with code examples.
-
-## How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
-
-## Contribute
-
-Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
-
+### Guidance Navigation and Control class
+Beside this repository, we submitted a [report](Results/GNC_Parrot_Minidrone.pdf), which describes the control model, detailed information about the implementation, results, discussion and conclusion. A simulation demo was published on [YouTube](https://youtu.be/kNiId2MReso).
+View from drone's camera with the generated trajectory (black)       |  Desired and recorded trajectories on test track
+:-------------------------:|:-------------------------:
+![](results/images/Composite_Trajectory.png)  |  ![](results/images/GNC_Paper_Sim_Evaluation.png)
 ## Credits
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project. 
+Thanks to the [MathWorks team](https://se.mathworks.com/academia/student-competitions/minidrones/nordics-baltics.html).
 
-#### Anything else that seems useful
-
-## License
-A short snippet describing the license (MIT, Apache etc)
-
-MIT © [Yourname]()
